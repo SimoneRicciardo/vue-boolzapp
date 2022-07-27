@@ -16,7 +16,11 @@
     width: 40px;
 }
 
-.prova{
+.my_height_cont{
+    height: 650px;
+}
+
+.size_img_contact{
     width: 50px;
 }
 
@@ -38,4 +42,8 @@
 
 .alert_link{
     font-size: 14px;
+}
+
+.my_message{
+    
 }

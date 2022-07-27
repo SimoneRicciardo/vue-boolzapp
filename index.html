@@ -14,7 +14,7 @@
     <div id="app">
         <div class="container-fluid bg-success">
             <div class="container-md py-3">
-                <div class="row">
+                <div class="row my_height_cont">
 
                     <!-- sezione contatti (sx) -->
                     <div class="col-4 bg-danger">
@@ -48,54 +48,69 @@
                             <div class="search_bar">
                 
                                 <div class="input-group p-2">
-                                    <button class="input-group-text my_bc_darkgrey"><i class="fa-solid fa-magnifying-glass"></i></button>
+                                    <button class="text-light input-group-text my_bc_darkgrey"><i class="fa-solid fa-magnifying-glass"></i></button>
                                     <input type="search" class="form-control my_bc_darkgrey" placeholder="Cerca">
                                 </div>
                                    
                             </div>
                         </div>
 
-                        <div class="d-flex flex-column py-2">
-                            <img class="prova rounded-circle py-1" src="img/avatar_1.jpg" alt="">
-                            <img class="prova rounded-circle py-1" src="img/avatar_1.jpg" alt="">
-                            <img class="prova rounded-circle py-1" src="img/avatar_1.jpg" alt="">
-                            <img class="prova rounded-circle py-1" src="img/avatar_1.jpg" alt="">
-                            <img class="prova rounded-circle py-1" src="img/avatar_1.jpg" alt="">
-                            <img class="prova rounded-circle py-1" src="img/avatar_1.jpg" alt="">
-                            <img class="prova rounded-circle py-1" src="img/avatar_1.jpg" alt="">
-                            <img class="prova rounded-circle py-1" src="img/avatar_1.jpg" alt="">
+                        <div class="row d-flex flex-column py-2 my_bc_darkgrey  text-light">
+
+                            <div class="d-flex justify-content-between">
+
+                                <div class="contact d-flex">
+                                    <div>
+                                        <img class="size_img_contact rounded-circle py-1" src="img/avatar_1.jpg" alt="">
+                                    </div>
+                                    <div>
+                                        <p class="my-0 mx-1 ">nome utente</p>
+                                        <p class="mx-1">ultimo accesso</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p>ora</p>
+                                </div>
+
+                            </div>
+                            
                         </div>
 
                     </div>
 
                     <div class="col-8 bg-warning d-flex flex-column justify-content-between">
 
-                        <div class="py-2 row bg-primary">
-
+                        <div class="py-2 row my_bc_darkgrey text-light">
                             <div class="d-flex justify-content-between align-items-center">
-                                <div class="d-flex align-items-center">
-                                    <img class="img-fluid prova rounded-circle" src="img/avatar_1.jpg" alt="">
-                                    <p>testo</p>
+                                <div class="d-flex">
+                                    <img class="img-fluid rounded-circle my_size_img" src="img/avatar_1.jpg" alt="">
+                                    <p class="mx-2">nome utente</p>
+                                    <p>ultimo accesso</p>
                                 </div>
-                            
                                 <div>
-                                    <p>icone</p>
+                                    <a href="#" class="text-light px-2  text-decoration-none fa-solid fa-magnifying-glass"></a>
+                                    <a href="#" class="text-light px-2  text-decoration-none fa-solid fa-paperclip"></a>
+                                    <a href="#" class="text-light px-2  text-decoration-none fa-solid fa-ellipsis-vertical"></a>
                                 </div>
-
                             </div>
                         </div>
 
-                        <div class="row h-100 bg-info">
+                        <div class="row h-100 bg-info my_message">
                             <div class="col-12">
-                                messaggi
+                                <div class="send">
+                                    inviati
+                                </div>
+                                <div class="received">
+                                    ricevuti
+                                </div>
                             </div>
                         </div>
 
-                        <div class="row">
+                        <div class="row my_bc_darkgrey text-light">
                             <div class="col-12 d-flex justify-content-between py-2">
-                                <div>icone</div>
+                                <div><i class="fa-solid fa-face-smile"></i></div>
                                 <input type="text">
-                                <div>icona</div>
+                                <div><i class="fa-solid fa-microphone"></i></div>
                             </div>
                         </div>
 
