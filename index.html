@@ -57,15 +57,15 @@
 
                         <div class="row d-flex flex-column py-2 my_bc_darkgrey  text-light">
 
-                            <div class="d-flex justify-content-between">
+                            <div v-for="contact in contacts" class="d-flex justify-content-between">
 
                                 <div class="contact d-flex">
                                     <div>
                                         <img class="size_img_contact rounded-circle py-1" src="img/avatar_1.jpg" alt="">
                                     </div>
                                     <div>
-                                        <p class="my-0 mx-1 ">nome utente</p>
-                                        <p class="mx-1">ultimo accesso</p>
+                                        <p class="my-0 mx-1 ">{{contact.name}}</p>
+                                        <p class="mx-1">ultimo messaggio inviato</p>
                                     </div>
                                 </div>
                                 <div>
