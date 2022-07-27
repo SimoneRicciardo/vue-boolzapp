@@ -1,0 +1,41 @@
+/* == GENERIC RULE ==*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --color-grey-header:rgb(32, 44, 51);
+    --color-grey-search:rgb(17, 27, 33);
+    --color-alert-bc: rgb(142, 218, 252);
+}
+/*== fine generic rule ==*/
+
+.my_size_img{
+    width: 40px;
+}
+
+.prova{
+    width: 50px;
+}
+
+.my_bc_darkgrey{
+    background-color: var(--color-grey-header);
+}
+
+.my_bc_search{
+    background-color: var(--color-grey-search);
+}
+
+.alert_bc{
+    background-color: var(--color-alert-bc);
+}
+
+.alert_bell{
+    color: var(--color-alert-bc);
+}
+
+.alert_link{
+    font-size: 14px;
+}
