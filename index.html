@@ -12,17 +12,18 @@
 <body>
 
     <div id="app">
-        <div class="container-fluid bg-success">
+        <div class="container-fluid">
             <div class="container-md py-3">
                 <div class="row my_height_cont">
 
                     <!-- sezione contatti (sx) -->
-                    <div class="col-4 bg-danger">
+                    <div class="col-4 bg-danger test2">
 
                         <div class="py-2 row my_bc_darkgrey">
                             <div class="d-flex justify-content-between align-items-center">
-                                <div>
+                                <div class="d-flex align-items-center text-light">
                                     <img class="img-fluid rounded-circle my_size_img" src="img/avatar_1.jpg" alt="">
+                                    <p class="m-2">Simone</p>
                                 </div>
                                 <div>
                                     <a href="#" class="text-light px-2 fs-4 text-decoration-none fa-solid fa-circle-notch"></a>
@@ -55,13 +56,13 @@
                             </div>
                         </div>
 
-                        <div class="row d-flex flex-column py-2 my_bc_darkgrey  text-light">
+                        <div class="row d-flex py-2 my_bc_darkgrey overflow-auto text-light my_height">
 
-                            <div v-for="contact in contacts" class="d-flex justify-content-between">
+                            <div @click="chatAttiva(index)" v-for="(contact,index) in contacts" class="d-flex justify-content-between" >
 
-                                <div class="contact d-flex">
+                                <div class="d-flex">
                                     <div>
-                                        <img class="size_img_contact rounded-circle py-1" src="img/avatar_1.jpg" alt="">
+                                        <img class="size_img_contact rounded-circle py-1" :src=" 'img/avatar' + contact.avatar + '.jpg'" alt="">
                                     </div>
                                     <div>
                                         <p class="my-0 mx-1 ">{{contact.name}}</p>
@@ -78,15 +79,18 @@
 
                     </div>
 
+                     <!-- sezione messaggi (dx) -->
                     <div class="col-8 bg-warning d-flex flex-column justify-content-between">
 
                         <div class="py-2 row my_bc_darkgrey text-light">
+                            
                             <div class="d-flex justify-content-between align-items-center">
+
                                 <div class="d-flex">
-                                    <img class="img-fluid rounded-circle my_size_img" src="img/avatar_1.jpg" alt="">
-                                    <p class="mx-2">nome utente</p>
-                                    <p>ultimo accesso</p>
+                                    <img class="img-fluid rounded-circle my_size_img" :src=" 'img/avatar' +  + '.jpg'" alt="">
+                                    <p class="mx-2"></p>
                                 </div>
+
                                 <div>
                                     <a href="#" class="text-light px-2  text-decoration-none fa-solid fa-magnifying-glass"></a>
                                     <a href="#" class="text-light px-2  text-decoration-none fa-solid fa-paperclip"></a>
@@ -95,14 +99,15 @@
                             </div>
                         </div>
 
-                        <div class="row h-100 bg-info my_message">
-                            <div class="col-12">
-                                <div class="send">
-                                    inviati
+                        <div class="row h-100 bg-info my_message px-5">
+                            <div class="col-12 px-3 pt-1">
+
+                                <div class="row">
+                                    <div v-for="message in contacts[activeChat].messages" :class="(message.status=='sent') ? 'send offset-6 col-6' : 'received col-6' ">
+                                        {{message.message}}
+                                    </div>
                                 </div>
-                                <div class="received">
-                                    ricevuti
-                                </div>
+
                             </div>
                         </div>
 

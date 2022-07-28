@@ -2,6 +2,9 @@ var app = new Vue(
     {
         el: '#app',
         data: {
+
+            activeChat: 0,
+            
             contacts: [
                 {
                     name: 'Michele',
@@ -10,7 +13,7 @@ var app = new Vue(
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',
-                            message: 'Hai portato a spasso il cane?',
+                            message: 'Hai portato a spasso il cane? ',
                             status: 'sent'
                         },
                         {
@@ -93,6 +96,23 @@ var app = new Vue(
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',
+                            message: 'Ricordati di chiamare la nonna',
+                            status: 'sent'
+                        },
+                        {
+                            date: '10/01/2020 15:50:00',
+                            message: 'Va bene, stasera la sento',
+                            status: 'received'
+                        }    
+                    ]   
+                },
+                {
+                    name: 'Claudia',
+                    avatar: '_6',
+                    visible: true,
+                    messages: [
+                        {
+                            date: '10/01/2020 15:30:55',
                             message: 'Ciao Claudia, hai novità?',
                             status: 'sent'
                         },
@@ -100,13 +120,12 @@ var app = new Vue(
                             date: '10/01/2020 15:50:00',
                             message: 'Non ancora',
                             status: 'received'
-                            },
+                        },
                         {
                             date: '10/01/2020 15:51:00',
                             message: 'Nessuna nuova, buona nuova',
                             status: 'sent'
                         }
-                            
                     ]   
                 },
                 {
@@ -147,30 +166,13 @@ var app = new Vue(
                             status: 'received'
                         }    
                     ]   
-                },
-                {
-                    name: 'Michele',
-                    avatar: '_1',
-                    visible: true,
-                    messages: [
-                        {
-                        date: '10/01/2020 15:30:55',
-                        message: 'Hai portato a spasso il cane?',
-                        status: 'sent'
-                        },
-                        {
-                        date: '10/01/2020 15:50:00',
-                        message: 'Ricordati di stendere i panni',
-                        status: 'sent'
-                        },
-                        {
-                        date: '10/01/2020 16:15:22',
-                        message: 'Tutto fatto!',
-                        status: 'received'
-                        }
-                    ]   
-                },
-            ], 
+                }
+            ] 
+        },
+        methods: {
+            chatAttiva(indice){
+                this.activeChat = indice;
+            }
         }
     }
 )
