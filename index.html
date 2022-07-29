@@ -49,26 +49,24 @@
                             <div class="search_bar">
                 
                                 <div class="input-group p-2">
-                                    <button class="text-light input-group-text my_bc_darkgrey"><i class="fa-solid fa-magnifying-glass"></i></button>
-                                    <input type="search" class="form-control my_bc_darkgrey" placeholder="Cerca">
+                                    <input @keyup="searchChat" type="text" class="form-control my_bc_darkgrey" placeholder="Cerca">
                                 </div>
                                    
                             </div>
                         </div>
 
                         <div class="row d-flex py-2 my_bc_darkgrey overflow-auto text-light my_height">
-
+                            
                             <div @click="chatAttiva(index)" v-for="(contact,index) in contacts" class="d-flex justify-content-between my_hover" :class="(index==activeChat) ? 'active' : '' ">
-
-                                <div class="d-flex">
-                                    <div>
-                                        <img class="size_img_contact rounded-circle py-1" :src=" 'img/avatar' + contact.avatar + '.jpg'" alt="">
+                                    <div class="d-flex">
+                                        <div>
+                                            <img class="size_img_contact rounded-circle py-1" :src=" 'img/avatar' + contact.avatar + '.jpg'" alt="">
+                                        </div>
+                                        <div>
+                                            <p class="my-0 mx-1 ">{{contact.name}}</p>
+                                            <p class="mx-1">ultimo messaggio inviato</p>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <p class="my-0 mx-1 ">{{contact.name}}</p>
-                                        <p class="mx-1">ultimo messaggio inviato</p>
-                                    </div>
-                                </div>
                                 <div>
                                     <p>ora</p>
                                 </div>

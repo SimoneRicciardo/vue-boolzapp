@@ -177,7 +177,7 @@ var app = new Vue(
             },
             sendMessage(){
                 const newMessagesent = {
-                    date: DateTime.local(),
+                    date: DateTime.now().toFormat("d MM y HH':'mm"),
                     message: this.newMessage,
                     status: 'sent'
                 };
@@ -186,14 +186,19 @@ var app = new Vue(
                 setTimeout(() => {
 
                     const Messagereceived = {
-                        date: DateTime.local(),
+                        date: DateTime.now().toFormat("d MM y HH':'mm"),
                         message: 'OK',
                         status: 'received'
                     };
                     this.contacts[this.activeChat].messages.push(Messagereceived);
                 }, 1000)
+            }, 
+            searchChat(index){
+                for(let i = 0; i < this.contacts.lenght, i++;) {
+                    console.log(i);
+                }
             }
-        }
+        }        
     }
 )
 
