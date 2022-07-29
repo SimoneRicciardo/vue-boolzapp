@@ -193,13 +193,13 @@ var app = new Vue(
                     this.contacts[this.activeChat].messages.push(Messagereceived);
                 }, 1000)
             }, 
-            searchChat(index){
+            searchChat(index) {
+
                 console.log(index);
-                for(let i = 0, i < this.contacts.lenght, i++) {
+                for(let i = 0; i < this.contacts.lenght; i++) {
                     console.log(i);
                 }
             }
         }        
     }
 )
-
