@@ -1,3 +1,4 @@
+var DateTime = luxon.DateTime;
 var app = new Vue(
     {
         el: '#app',
@@ -167,12 +168,32 @@ var app = new Vue(
                         }    
                     ]   
                 }
-            ] 
+            ],
+            newMessage: '' 
         },
         methods: {
             chatAttiva(indice){
                 this.activeChat = indice;
+            },
+            sendMessage(){
+                const newMessagesent = {
+                    date: DateTime.local(),
+                    message: this.newMessage,
+                    status: 'sent'
+                };
+                this.contacts[this.activeChat].messages.push(newMessagesent);
+                
+                setTimeout(() => {
+
+                    const Messagereceived = {
+                        date: DateTime.local(),
+                        message: 'OK',
+                        status: 'received'
+                    };
+                    this.contacts[this.activeChat].messages.push(Messagereceived);
+                }, 1000)
             }
         }
     }
 )
+
