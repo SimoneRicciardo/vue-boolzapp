@@ -5,7 +5,8 @@ var app = new Vue(
         data: {
 
             activeChat: 0,
-            
+            newMessage: '' ,
+            inputSearch: '',
             contacts: [
                 {
                     name: 'Michele',
@@ -169,12 +170,13 @@ var app = new Vue(
                     ]   
                 }
             ],
-            newMessage: '' 
         },
         methods: {
-            chatAttiva(indice){
-                this.activeChat = indice;
+            
+            chatAttiva(index){
+                this.activeChat = index;
             },
+            // Creo un metodo per inviare un messaggio
             sendMessage(){
                 const newMessagesent = {
                     date: DateTime.now().toFormat("d MM y HH':'mm"),
@@ -182,9 +184,9 @@ var app = new Vue(
                     status: 'sent'
                 };
                 this.contacts[this.activeChat].messages.push(newMessagesent);
-                
-                setTimeout(() => {
 
+                 // Genero la risposta automatica 1 secondo
+                setTimeout(() => {
                     const Messagereceived = {
                         date: DateTime.now().toFormat("d MM y HH':'mm"),
                         message: 'OK',
@@ -193,13 +195,19 @@ var app = new Vue(
                     this.contacts[this.activeChat].messages.push(Messagereceived);
                 }, 1000)
             }, 
-            searchChat(index) {
 
-                console.log(index);
-                for(let i = 0; i < this.contacts.lenght; i++) {
-                    console.log(i);
-                }
+            // Creo un metodo per barra di ricerca
+            search(){
+                let searchContact = this.inputSearch.toLowerCase();
+                this.contacts.forEach((item) => {
+                    if (item.name.toLowerCase().includes(searchContact)){
+                        item.visible=true;
+                    }else{
+                        item.visible=false;	
+                    }
+                })
             }
         }        
     }
-)
+);
+Vue.config.devtools = true;

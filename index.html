@@ -11,119 +11,127 @@
 </head>
 <body>
 
-    <div id="app">
-        <div class="container-fluid">
-            <div class="container-md py-3">
-                <div class="row my_height_cont">
+<div id="app">
+    <!-- container -->
+    <div class="container-fluid">
+        <div class="container-md py-3">
+            <div class="row my_height_cont">
 
-                    <!-- sezione contatti (sx) -->
-                    <div class="col-4 bg-danger test2">
+                <!-- sezione contatti (sx) -->
+                <div class="col-4 bg-danger test2">
 
-                        <div class="py-2 row my_bc_darkgrey">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="d-flex align-items-center text-light">
-                                    <img class="img-fluid rounded-circle my_size_img" src="img/avatar_1.jpg" alt="">
-                                    <p class="m-2">Simone</p>
-                                </div>
-                                <div>
-                                    <a href="#" class="text-light px-2 fs-4 text-decoration-none fa-solid fa-circle-notch"></a>
-                                    <a href="#" class="text-light px-2 fs-2 text-decoration-none fa-duotone fa-plus"></a>
-                                    <a href="#" class="text-light px-2 fs-4 text-decoration-none fa-solid fa-ellipsis"></a>
-                                </div>
+                    <!-- info utente top -->
+                    <div class="py-2 row my_bc_darkgrey">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex align-items-center text-light">
+                                <img class="img-fluid rounded-circle my_size_img" src="img/avatar_1.jpg" alt="">
+                                <p class="m-2">Simone</p>
+                            </div>
+                            <div>
+                                <a href="#" class="text-light px-2 fs-4 text-decoration-none fa-solid fa-circle-notch"></a>
+                                <a href="#" class="text-light px-2 fs-2 text-decoration-none fa-duotone fa-plus"></a>
+                                <a href="#" class="text-light px-2 fs-4 text-decoration-none fa-solid fa-ellipsis"></a>
                             </div>
                         </div>
-
-                        <div class="py-2 row alert_bc">
-                            <div class="d-flex align-items-center">
-                                <div class="col-1 bg-light rounded-circle">
-                                    <i class="alert_bell p-2 fa-solid fa-bell-slash"></i>
-                                </div>
-                                <div class="mx-2">
-                                    <p class="alert_link mb-0">Ricevi notifiche di nuovi messaggi</p>
-                                    <a class="alert_link" href="">Attiva notifiche desktop</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row my_bc_search">
-                            <div class="search_bar">
-                
-                                <div class="input-group p-2">
-                                    <input @keyup="searchChat" type="text" class="form-control my_bc_darkgrey" placeholder="Cerca">
-                                </div>
-                                   
-                            </div>
-                        </div>
-
-                        <div class="row d-flex py-2 my_bc_darkgrey overflow-auto text-light my_height">
-                            
-                            <div @click="chatAttiva(index)" v-for="(contact,index) in contacts" class="d-flex justify-content-between my_hover" :class="(index==activeChat) ? 'active' : '' ">
-                                    <div class="d-flex">
-                                        <div>
-                                            <img class="size_img_contact rounded-circle py-1" :src=" 'img/avatar' + contact.avatar + '.jpg'" alt="">
-                                        </div>
-                                        <div>
-                                            <p class="my-0 mx-1 ">{{contact.name}}</p>
-                                            <p class="mx-1">ultimo messaggio inviato</p>
-                                        </div>
-                                    </div>
-                                <div>
-                                    <p>ora</p>
-                                </div>
-
-                            </div>
-
-                        </div>
-
                     </div>
+                    <!-- /info utente -->
 
-                     <!-- sezione messaggi (dx) -->
-                    <div class="col-8 bg-warning d-flex flex-column justify-content-between">
-
-                        <div class="py-2 row my_bc_darkgrey text-light">
-                            
-                            <div class="d-flex justify-content-between align-items-center">
-
-                                <div v-for="" class="d-flex">
-                                    <img class="img-fluid rounded-circle my_size_img" :src=" 'img/avatar' + contacts[activeChat].avatar + '.jpg'" alt="">
-                                    <p class="mx-2">{{contacts[activeChat].name}}</p>
-                                </div>
-
-                                <div>
-                                    <a href="#" class="text-light px-2  text-decoration-none fa-solid fa-magnifying-glass"></a>
-                                    <a href="#" class="text-light px-2  text-decoration-none fa-solid fa-paperclip"></a>
-                                    <a href="#" class="text-light px-2  text-decoration-none fa-solid fa-ellipsis-vertical"></a>
-                                </div>
+                    <!-- banner notifiche -->
+                    <div class="py-2 row alert_bc">
+                        <div class="d-flex align-items-center">
+                            <div class="col-1 bg-light rounded-circle">
+                                <i class="alert_bell p-2 fa-solid fa-bell-slash"></i>
+                            </div>
+                            <div class="mx-2">
+                                <p class="alert_link mb-0">Ricevi notifiche di nuovi messaggi</p>
+                                <a class="alert_link" href="">Attiva notifiche desktop</a>
                             </div>
                         </div>
-
-                        <div class="row h-100 my_message px-5">
-                            <div class="col-12 px-3 pt-1">
-
-                                <div class="row">
-                                    <div v-for="message in contacts[activeChat].messages" :class="(message.status=='sent') ? 'send offset-6 col-6' : 'received col-6' ">
-                                        {{message.message}}
-                                        <p><small>{{message.date}}</small></p>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="row my_bc_darkgrey text-light">
-                            <div class="col-12 d-flex justify-content-between py-2">
-                                <div><i class="fa-solid fa-face-smile"></i></div>
-                                <input class="text_chat" type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="sendMessage">
-                                <div><i class="fa-solid fa-microphone"></i></div>
-                            </div>
-                        </div>
-
                     </div>
+                    <!-- /banner notifiche -->
+
+                    <!-- search -->
+                    <div class="row my_bc_search">
+                        <div class="search_bar">
+                            <div class="input-group p-2">
+                                <input v-model="inputSearch" @keyup="search()" type="text" class="form-control my_bc_darkgrey" placeholder="Cerca">
+                            </div>                            
+                        </div>
+                    </div>
+                    <!-- /search -->
+
+                    <!-- chat -->
+                    <div class="row d-flex py-2 my_bc_darkgrey overflow-auto text-light my_height">
+                        <div @click="chatAttiva(index)" v-for="(contact,index) in contacts" class="d-flex justify-content-between my_hover" :class="(index==activeChat) ? 'active' : '' " v-if="contact.visible" @click="selectedChat(index)">
+                            <div class="d-flex">
+                                <div>
+                                    <img class="size_img_contact rounded-circle py-1" :src=" 'img/avatar' + contact.avatar + '.jpg'" alt="">
+                                </div>
+                                <div>
+                                    <p class="my-0 mx-1 ">{{contact.name}}</p>
+                                    <p class="mx-1">ultimo messaggio inviato</p>
+                                </div>
+                            </div>
+                            <div>
+                                <p>ora</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /chat -->
 
                 </div>
+                <!-- /sezione contatti (sx) -->
+
+                <!-- sezione messaggi (dx) -->
+                <div class="col-8 bg-warning d-flex flex-column justify-content-between">
+
+                    <!-- info contatto (top) -->
+                    <div class="py-2 row my_bc_darkgrey text-light">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div v-for="" class="d-flex">
+                                <img class="img-fluid rounded-circle my_size_img" :src=" 'img/avatar' + contacts[activeChat].avatar + '.jpg'" alt="">
+                                <p class="mx-2">{{contacts[activeChat].name}}</p>
+                            </div>
+                            <div>
+                                <a href="#" class="text-light px-2  text-decoration-none fa-solid fa-magnifying-glass"></a>
+                                <a href="#" class="text-light px-2  text-decoration-none fa-solid fa-paperclip"></a>
+                                <a href="#" class="text-light px-2  text-decoration-none fa-solid fa-ellipsis-vertical"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /info contatto -->
+
+                    <!-- messaggi -->
+                    <div class="row h-100 my_message px-5">
+                        <div class="col-12 px-3 pt-1">
+                            <div class="row">
+                                <div v-for="message in contacts[activeChat].messages" :class="(message.status=='sent') ? 'send offset-6 col-6' : 'received col-6' ">
+                                    {{message.message}}
+                                    <p><small>{{message.date}}</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /messaggi -->
+
+                    <!-- input testo -->
+                    <div class="row my_bc_darkgrey text-light">
+                        <div class="col-12 d-flex justify-content-between py-2">
+                            <div><i class="fa-solid fa-face-smile"></i></div>
+                            <input class="text_chat" type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="sendMessage">
+                            <div><i class="fa-solid fa-microphone"></i></div>
+                        </div>
+                    </div>
+                    <!-- /input testo -->
+
+                </div>
+                <!-- /sezione messaggi (dx) -->
+
             </div>
         </div>
     </div>
+    <!-- /container -->
+</div>
 
     <script src="https://cdn.jsdelivr.net/npm/luxon@3.0.1/build/global/luxon.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
